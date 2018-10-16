@@ -103,28 +103,28 @@ float AHosekSky::EvaluateSpline(TSharedPtr<float> spline, int stride, float valu
 		1 * pow(value, 5) * spline.Get()[5 * stride];
 }
 
-float AHosekSky::Evaluate(TSharedPtr<float> dataset,int stride, float turbidity, float albedo, float sunTheta)
-{
-	// splines are functions of elevation^1/3
-	float elevationK = FMath::Pow(std::max(0.f, 1.f - sunTheta / float(M_PI / 2.f)), 1.f / 3.0f);
-
-	// table has values for turbidity 1..10
-	int turbidity0 = FMath::Clamp(static_cast<int>(turbidity), 1, 10);
-	int turbidity1 = std::min(turbidity0 + 1, 10);
-	float turbidityK = FMath::Clamp(turbidity - turbidity0, 0.f, 1.f);
-
-	TSharedPtr<float> datasetA0 = dataset;
-	auto datasetA1 = (dataset.Get() + stride * 6 * 10);
-	auto stf = dataset.Get() + 1;
-	float a0t0 = EvaluateSpline(datasetA0. + stride * 6 * (turbidity0 - 1), stride, elevationK);
-	float a1t0 = EvaluateSpline(datasetA1 + stride * 6 * (turbidity0 - 1), stride, elevationK);
-
-	float a0t1 = EvaluateSpline(datasetA0 + stride * 6 * (turbidity1 - 1), stride, elevationK);
-	float a1t1 = EvaluateSpline(datasetA1 + stride * 6 * (turbidity1 - 1), stride, elevationK);
-
-	return
-		a0t0 * (1 - albedo) * (1 - turbidityK) +
-		a1t0 * albedo * (1 - turbidityK) +
-		a0t1 * (1 - albedo) * turbidityK +
-		a1t1 * albedo * turbidityK;
-}
+//float AHosekSky::Evaluate(TSharedPtr<float> dataset,int stride, float turbidity, float albedo, float sunTheta)
+//{
+//	// splines are functions of elevation^1/3
+//	float elevationK = FMath::Pow(std::max(0.f, 1.f - sunTheta / float(M_PI / 2.f)), 1.f / 3.0f);
+//
+//	// table has values for turbidity 1..10
+//	int turbidity0 = FMath::Clamp(static_cast<int>(turbidity), 1, 10);
+//	int turbidity1 = std::min(turbidity0 + 1, 10);
+//	float turbidityK = FMath::Clamp(turbidity - turbidity0, 0.f, 1.f);
+//
+//	TSharedPtr<float> datasetA0 = dataset;
+//	auto datasetA1 = (dataset.Get() + stride * 6 * 10);
+//	auto stf = dataset.Get() + 1;
+//	float a0t0 = EvaluateSpline(datasetA0. + stride * 6 * (turbidity0 - 1), stride, elevationK);
+//	float a1t0 = EvaluateSpline(datasetA1 + stride * 6 * (turbidity0 - 1), stride, elevationK);
+//
+//	float a0t1 = EvaluateSpline(datasetA0 + stride * 6 * (turbidity1 - 1), stride, elevationK);
+//	float a1t1 = EvaluateSpline(datasetA1 + stride * 6 * (turbidity1 - 1), stride, elevationK);
+//
+//	return
+//		a0t0 * (1 - albedo) * (1 - turbidityK) +
+//		a1t0 * albedo * (1 - turbidityK) +
+//		a0t1 * (1 - albedo) * turbidityK +
+//		a1t1 * albedo * turbidityK;
+//}
