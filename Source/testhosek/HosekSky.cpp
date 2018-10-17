@@ -44,40 +44,40 @@ FVector AHosekSky::ExpV(FVector vec) {
 	return FVector{exp(vec.X),exp(vec.Y),exp(vec.Z)};
 }
 
-//FHosekParams AHosekSky::Compute(float sunTheta, float turbidity, float albedo, float normalizedSunY)
-//{
-//	FVector A, B, C, D, E, F, G, H, I;
-//	FVector Z;
-//
-//	//for (int i = 0; i < 3; ++i)
-//	//{
-//
-//	//	A[i] = Evaluate(true,i, 0, 9, turbidity, albedo, sunTheta);
-//	//	B[i] = Evaluate(true,i, 1, 9, turbidity, albedo, sunTheta);
-//	//	C[i] = Evaluate(true,i, 2, 9, turbidity, albedo, sunTheta);
-//	//	D[i] = Evaluate(true,i, 3, 9, turbidity, albedo, sunTheta);
-//	//	E[i] = Evaluate(true,i, 4, 9, turbidity, albedo, sunTheta);
-//	//	F[i] = Evaluate(true,i, 5, 9, turbidity, albedo, sunTheta);
-//	//	G[i] = Evaluate(true,i, 6, 9, turbidity, albedo, sunTheta);
-//
-//	//	// Note: H and I are swapped in the dataset; we use notation from paper
-//	//	H[i] = Evaluate(true,i, 8, 9, turbidity, albedo, sunTheta);
-//	//	I[i] = Evaluate(true,i, 7, 9, turbidity, albedo, sunTheta);
-//
-//	//	Z[i] = Evaluate(false,i, 0, 1, turbidity, albedo, sunTheta);
-//	//}
-//
-//	//if (normalizedSunY)
-//	//{
-//	//	FVector S = PerezExt(std::cos(sunTheta), 0, 1.f, A, B, C, D, E, F, G, H, I) * Z;
-//
-//	//	Z /= FVector::DotProduct(S,FVector(0.2126, 0.7152, 0.0722));
-//	//	Z *= normalizedSunY;
-//	//	
-//	//}
-//
-//	return { A, B, C, D, E, F, G, H, I, Z };
-//}
+FHosekParams AHosekSky::Compute(float sunTheta, float turbidity, float albedo, float normalizedSunY)
+{
+	FVector A, B, C, D, E, F, G, H, I;
+	FVector Z;
+
+	//for (int i = 0; i < 3; ++i)
+	//{
+
+	//	A[i] = Evaluate(true,i, 0, 9, turbidity, albedo, sunTheta);
+	//	B[i] = Evaluate(true,i, 1, 9, turbidity, albedo, sunTheta);
+	//	C[i] = Evaluate(true,i, 2, 9, turbidity, albedo, sunTheta);
+	//	D[i] = Evaluate(true,i, 3, 9, turbidity, albedo, sunTheta);
+	//	E[i] = Evaluate(true,i, 4, 9, turbidity, albedo, sunTheta);
+	//	F[i] = Evaluate(true,i, 5, 9, turbidity, albedo, sunTheta);
+	//	G[i] = Evaluate(true,i, 6, 9, turbidity, albedo, sunTheta);
+
+	//	// Note: H and I are swapped in the dataset; we use notation from paper
+	//	H[i] = Evaluate(true,i, 8, 9, turbidity, albedo, sunTheta);
+	//	I[i] = Evaluate(true,i, 7, 9, turbidity, albedo, sunTheta);
+
+	//	Z[i] = Evaluate(false,i, 0, 1, turbidity, albedo, sunTheta);
+	//}
+
+	//if (normalizedSunY)
+	//{
+	//	FVector S = PerezExt(std::cos(sunTheta), 0, 1.f, A, B, C, D, E, F, G, H, I) * Z;
+
+	//	Z /= FVector::DotProduct(S,FVector(0.2126, 0.7152, 0.0722));
+	//	Z *= normalizedSunY;
+	//	
+	//}
+
+	return { A, B, C, D, E, F, G, H, I, Z };
+}
 
 FVector AHosekSky::PerezExt(float cos_theta, float gamma, float cos_gamma, FVector A, FVector B, FVector C, FVector D, FVector E, FVector F, FVector G, FVector H, FVector I)
 {
