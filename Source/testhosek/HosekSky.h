@@ -4,7 +4,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "HosekSky.generated.h"
-
+struct HosekParams;
 
 UCLASS()
 class TESTHOSEK_API AHosekSky : public AActor
@@ -16,14 +16,14 @@ public:
 	AHosekSky();
 
 
-	//UFUNCTION(BlueprintCallable, Category = "Atmosphere")
-	//HosekParams Compute(float sunTheta, float turbidity, float albedo, float normalizedSunY);
+	UFUNCTION(BlueprintCallable, Category = "Atmosphere")
+	HosekParams Compute(float sunTheta, float turbidity, float albedo, float normalizedSunY);
 
-	/*UFUNCTION(BlueprintCallable, Category = "Atmosphere")
-	static float Evaluate(TSharedPtr<float> dataset, int stride, float turbidity, float albedo, float sunTheta);*/
+	UFUNCTION(BlueprintCallable, Category = "Atmosphere")
+	static float Evaluate(bool notRad, int dataset,int splineStart, int stride, float turbidity, float albedo, float sunTheta);
 
 	
-	static float EvaluateSpline(TSharedPtr<float> spline, int stride, float value);
+	static float EvaluateSpline(bool notRad, int dataset, int splineStart, int stride, float value);
 
 	UFUNCTION(BlueprintCallable, Category = "Atmosphere")
 	static FVector PerezExt(float cos_theta, float gamma, float cos_gamma, FVector A, FVector B, FVector C, FVector D, FVector E, FVector F, FVector G, FVector H, FVector I);
