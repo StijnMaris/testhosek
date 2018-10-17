@@ -4,7 +4,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "HosekSky.generated.h"
-struct HosekParams;
+
 
 UCLASS()
 class TESTHOSEK_API AHosekSky : public AActor
@@ -16,8 +16,8 @@ public:
 	AHosekSky();
 
 
-	UFUNCTION(BlueprintCallable, Category = "Atmosphere")
-	HosekParams Compute(float sunTheta, float turbidity, float albedo, float normalizedSunY);
+	/*UFUNCTION(BlueprintCallable, Category = "Atmosphere")
+	FHosekParams Compute(float sunTheta, float turbidity, float albedo, float normalizedSunY);*/
 
 	UFUNCTION(BlueprintCallable, Category = "Atmosphere")
 	static float Evaluate(bool notRad, int dataset,int splineStart, int stride, float turbidity, float albedo, float sunTheta);
@@ -47,3 +47,32 @@ public:
 
 	
 };
+
+
+//USTRUCT(BlueprintType)
+//	struct FHosekParams { 
+//	public:
+//		GENERATED_USTRUCT_BODY()
+//
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector A;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector B;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector c;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector D;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector E;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector F;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector G;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters") 
+//		FVector H;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector I;
+//		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
+//		FVector Z;
+//
+//	};

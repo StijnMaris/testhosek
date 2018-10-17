@@ -1,30 +1,30 @@
 #pragma once
 #include "CoreMinimal.h"
 
-USTRUCT()
-	struct HosekParams { 
+USTRUCT(BlueprintType)
+	struct FHosekParams { 
 	public:
 		GENERATED_USTRUCT_BODY()
 
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector A;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector B;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector c;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector D;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector E;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector F;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector G;
-		UPROPERTY(BlueprintReadOnly) 
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters") 
 		FVector H;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector I;
-		UPROPERTY(BlueprintReadOnly)
+		UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Parameters")
 		FVector Z;
 
 	};
